@@ -1,0 +1,19 @@
+{
+  "name": "apacheparser",
+  "version": "1.0.0",
+  "description": "Node-based project for parsing an apache log and displaying simple report",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevidently/ApacheParser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevidently/ApacheParser/issues"
+  },
+  "homepage": "https://github.com/kevidently/ApacheParser#readme"
+}
