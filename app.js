@@ -31,17 +31,17 @@ http.get("http://dev.inspiringapps.com/Files/IAChallenge/30E02AAA-B947-4D4B-8FB6
                 userActivityMap[userIpAddress].rawPathList.push(resourcePath);
             });
 
+            // Done iterating lines in file, now iterate through raw lists of path requests for each user
             lineReaderInterface.on("close", function () {
-                // Iterate through raw path lists for each user 
                 for (let i in userActivityMap ) {
                     let tmpRawPathList = userActivityMap[i].rawPathList;
                     // We are at the list of paths for this user, now build sequences of 3
                     for ( let j=0; j<tmpRawPathList.length; j++ ) {
                         let nextIndex = j+1;
                         let thirdIndex = j+2;                        
-                        // Check if we are trying to create a sequence that will go off the end of the array
+                        // Ensure we are not creating a sequence that will go off the end of the array
                         if ( tmpRawPathList[nextIndex] && tmpRawPathList[thirdIndex] ) {
-                            // Build the sequence, store it, and increment the count for it
+                            // Store the path sequence and increment the count for it
                             let pathSequence = tmpRawPathList[j]+","+tmpRawPathList[nextIndex]+","+tmpRawPathList[thirdIndex];
                             if ( !sequenceTotals[pathSequence] ) {
                                 sequenceTotals[pathSequence] = 0;
@@ -63,7 +63,6 @@ http.get("http://dev.inspiringapps.com/Files/IAChallenge/30E02AAA-B947-4D4B-8FB6
                     )
                 }
 
-                // Do the sort
                 sortableTotals.sort( (a, b) => b.count - a.count );
 
                 // Output results
