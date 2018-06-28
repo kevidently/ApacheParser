@@ -11,6 +11,7 @@ http.get("http://dev.inspiringapps.com/Files/IAChallenge/30E02AAA-B947-4D4B-8FB6
     let sequenceTotals = {};
     response.on('data', (chunk) => { fileContent += chunk } )
     response.on('end', function () {
+        if ( !fs.existsSync("downloads") ) { fs.mkdirSync("downloads"); }
         fs.writeFile(filePath, fileContent, function () {
             let lineReaderInterface = readline.createInterface({
                 input: fs.createReadStream(filePath)
