@@ -25,7 +25,7 @@ http.get("http://dev.inspiringapps.com/Files/IAChallenge/30E02AAA-B947-4D4B-8FB6
                 let userIpAddress = result[1];
                 let resourcePath = result[2];
                 if ( !userActivityMap[userIpAddress] ) {
-                    userActivityMap[userIpAddress] = {  rawPathList: [] };
+                    userActivityMap[userIpAddress] = { rawPathList: [] };
                 }
                 userActivityMap[userIpAddress].rawPathList.push(resourcePath);
             });
